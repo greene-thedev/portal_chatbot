@@ -1,4 +1,6 @@
 import re
+# Calculates message probability based on keyword matching. Checks for required words.
+# Returns probability percentage. Used to identify best bot response.
 import long_responses as long
 
 
@@ -36,8 +38,8 @@ def check_all_messages(message):
         highest_prob_list[bot_response] = message_probability(message, list_of_words, single_response, required_words)
 
     # Responses -------------------------------------------------------------------------------------------------------
-    response('Hello!', ['hello', 'hi', 'hey', 'sup', 'heyo'], single_response=True)
-    response('See you!', ['bye', 'goodbye'], single_response=True)
+    response('Hello!', ['hello', 'hi', 'hey', 'sup', 'heyo'], single_response=False)
+    response('See you!', ['bye', 'goodbye', 'see you later', 'komort'], single_response=True)
     response('I\'m doing fine, and you?', ['how', 'are', 'you', 'doing'], required_words=['how'])
     response('You\'re welcome!', ['thank', 'thanks'], single_response=True)
     response('Thank you!', ['i', 'love', 'code', 'palace'], required_words=['code', 'palace'])
