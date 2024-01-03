@@ -38,11 +38,12 @@ def check_all_messages(message):
         highest_prob_list[bot_response] = message_probability(message, list_of_words, single_response, required_words)
 
     # Responses -------------------------------------------------------------------------------------------------------
-    response('Hello!', ['hello', 'hi', 'hey', 'sup', 'heyo'], single_response=False)
+    response('Hello!', ['hello', 'hi', 'hey', 'sup', 'heyo'], single_response=True)
     response('See you!', ['bye', 'goodbye', 'see you later', 'komort'], single_response=True)
     response('I\'m doing fine, and you?', ['how', 'are', 'you', 'doing'], required_words=['how'])
     response('You\'re welcome!', ['thank', 'thanks'], single_response=True)
     response('Thank you!', ['i', 'love', 'code', 'palace'], required_words=['code', 'palace'])
+    response('', [''], required_words=[''])
 
     # Longer responses
     response(long.R_ADVICE, ['give', 'advice'], required_words=['advice'])
@@ -53,6 +54,7 @@ def check_all_messages(message):
     # print(f'Best match = {best_match} | Score: {highest_prob_list[best_match]}')
 
     return long.unknown() if highest_prob_list[best_match] < 1 else best_match
+
 
 
 # Used to get the response
